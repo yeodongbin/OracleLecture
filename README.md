@@ -1,20 +1,16 @@
 
 # OracleLecture
-	
-'SELECT *
+
+```
+SELECT *
 FROM EMP
 WHERE JOB = 'SALESMAN' OR JOB = 'ANALYST'
-ORDER BY DEPTNO, JOB, SAL;'
-
-
-SELECT * 
-
-FROM EMP
-
-WHERE JOB LIKE 'S%' OR JOB LIKE 'A%'
-
 ORDER BY DEPTNO, JOB, SAL;
 
+SELECT * 
+FROM EMP
+WHERE JOB LIKE 'S%' OR JOB LIKE 'A%'
+ORDER BY DEPTNO, JOB, SAL;
 
 SELECT * 
 FROM EMP
@@ -30,25 +26,34 @@ SELECT *
 FROM EMP
 WHERE JOB = SOME('SALESMAN','ANALYST')
 ORDER BY DEPTNO, JOB, SAL;
-
+```
 
 - 사원들의 정보를 사원직무별, 급여 순으로 검색하라. 단 급여는 1000만원 이상만 검색하라
+```
 select * 
 from emp
 where sal >=1000
 order by job, sal;
+```
 
 
 - JOB이 Manager가 아닌 사원의 사원번호, 이름, 직무별 출력하시오. 단, JOB이 없는 사원은 제외한다.
+```
 select empno, ename, job
 from emp
 where job <> 'MANAGER' and job is not null
 order by job;
+```
 
 
 - 사원들의 사원이름과 사원직무를 연결하여 검색하여라. (예: King PRESIDENT)
-select concat(concat(inticap(ename),' '),job) from emp;
-select inticap(ename)||' '||job from emp;
+```
+select concat(concat(inticap(ename),' '),job) 
+from emp;
+
+select inticap(ename)||' '||job 
+from emp;
+```
 
 
 - 사원들의 사원이름과 사원이름의 길이를 검색하여라 단 매니저만 검색하시오.
